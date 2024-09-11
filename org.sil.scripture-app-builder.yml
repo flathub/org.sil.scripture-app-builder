@@ -132,7 +132,6 @@ modules:
       - mkdir /app/scripture-app-builder
       - tar xf scripture-app-builder.tgz -C /app/scripture-app-builder
       # Icons, desktop entry, metainfo and runner script
-      - find /app/scripture-app-builder
       - install -Dm644 /app/scripture-app-builder/app-icons/scripture-app-builder.png
         /app/share/icons/hicolor/128x128/apps/org.sil.scripture-app-builder.png
       - install -Dm644 /app/scripture-app-builder/app-icons/scripture-app-builder.svg
