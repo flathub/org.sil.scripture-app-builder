@@ -29,18 +29,9 @@ Install freedesktop runtime, and openjdk:
 flatpak --user install flathub org.freedesktop.Sdk//23.08
 flatpak --user install flathub org.freedesktop.Platform//23.08
 flatpak --user install flathub org.freedesktop.Sdk.Extension.openjdk17//23.08
+flatpak --user install flathub org.freedesktop.Sdk.Extension.node20//23.08
 flatpak update
 ```
-
-### Additional Files:
-
-A very useful script I used for generating the "requests" python module dependency. Its parent repository is full of tools for preparing build manifests for common software:
-
-- https://github.com/flatpak/flatpak-builder-tools/tree/master/pip
-
-Repo for the script that pulls from a docker registry without having docker installed:
-
-- https://github.com/NotGlop/docker-drag 
 
 ### Build
 
