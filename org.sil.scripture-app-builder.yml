@@ -158,5 +158,5 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://sil-app-builders-linux-artifacts.s3.amazonaws.com/refs/tags/v12.2.1/66/scripture-app-builder.tgz
-        sha256: 77ad2ecff3469290f712e63362acb7b3a935096969ddddbd8656125ff6ad6be1
+        url: https://sil-app-builders-linux-artifacts.s3.amazonaws.com/refs/tags/v12.2.2/67/scripture-app-builder.tgz
+        sha256: 0e6f6d0ecc5fc42b8192953e0991e5e48ba07e51c472ac0eccb7d02db8a05886
