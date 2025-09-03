@@ -131,7 +131,6 @@ modules:
       # The source has to be private due to agreements with copyright holders of content being included by end users
       - mkdir /app/scripture-app-builder
       - tar xf scripture-app-builder.tgz -C /app/scripture-app-builder
-      - chmod +x /app/scripture-app-builder/tools/gradle/bin/gradle
       # Icons, desktop entry, metainfo and runner script
       - install -Dm644 /app/scripture-app-builder/app-icons/scripture-app-builder.png
         /app/share/icons/hicolor/128x128/apps/org.sil.scripture-app-builder.png
@@ -159,5 +158,5 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://sil-app-builders-linux-artifacts.s3.amazonaws.com/master/87/scripture-app-builder.tgz
-        sha256: 6033c8e4c20dce58980f911957b065b4b29d4af5df29d82f9fd3e7f49c80c165
+        url: https://sil-app-builders-linux-artifacts.s3.amazonaws.com/master/105/scripture-app-builder.tgz
+        sha256: f7eb97cbeac7ae959612222c79c5006ce08002b6a4345b38a376f13e447b4039
