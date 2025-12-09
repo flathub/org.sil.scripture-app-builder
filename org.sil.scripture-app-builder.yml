@@ -71,8 +71,12 @@ modules:
         --prefix=${FLATPAK_DEST} "meson-python" "pyproject-metadata"
       - python3 -m pip install --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "numpy" --no-build-isolation
+      # Extract and patch aeneas, then repackage it for pip
+      - tar -xzf aeneas-1.7.3.0.tar.gz
+      - cd aeneas-1.7.3.0 && patch -p0 < ../remove-numpy-import-check.patch && cd ..
+      - tar -czf aeneas-1.7.3.0-patched.tar.gz aeneas-1.7.3.0
       - python3 -m pip install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} "aeneas" --no-build-isolation
+        --prefix=${FLATPAK_DEST} aeneas-1.7.3.0-patched.tar.gz --no-build-isolation
     sources:
       - type: file
         url: https://files.pythonhosted.org/packages/28/58/66db620a8a7ccb32633de9f403fe49f1b63c68ca94e5c340ec5cceeb9821/meson_python-0.18.0-py3-none-any.whl
@@ -80,11 +84,10 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/c0/57/e69a1de45ec7a99a707e9f1a5defa035a48de0cae2d8582451c72d2db456/pyproject_metadata-0.10.0-py3-none-any.whl
         sha256: b1e439a9f7560f9792ee5975dcf5e89d2510b1fc84a922d7e5d665aa9102d966
-      - type: archive
+      - type: file
         url: https://files.pythonhosted.org/packages/e5/92/88d421001bb257588df4864ceca24d570e2e822db4f40f48737a78b648b2/aeneas-1.7.3.0.tar.gz
         sha256: b492d8ba36f12cce69c29c35e7075857a9d036c4743cc8f4689922be980826da
-        strip-components: 1
-      - type: patch
+      - type: file
         path: patches/aeneas/remove-numpy-import-check.patch
       - type: file
         url: https://files.pythonhosted.org/packages/d1/c2/fe97d779f3ef3b15f05c94a2f1e3d21732574ed441687474db9d342a7315/soupsieve-2.6-py3-none-any.whl
