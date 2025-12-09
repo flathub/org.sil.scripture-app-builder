@@ -73,8 +73,9 @@ modules:
       - python3 -m pip install --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "setuptools" "pyproject-metadata" "meson-python" --no-build-isolation
       - python3 -m pip install --exists-action=i --no-index --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} "numpy" --no-build-isolation
-      - python3 -m pip install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "numpy" "beautifulsoup4" "lxml" "soupsieve" --no-build-isolation
+      - export PYTHONPATH="${FLATPAK_DEST}/lib/python3.13/site-packages:${PYTHONPATH}" && python3
+        -m pip install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "aeneas" --no-build-isolation
     sources:
       - type: file
