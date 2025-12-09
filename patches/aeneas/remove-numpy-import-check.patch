@@ -1,6 +1,6 @@
---- setup.py
-+++ setup.py
-@@ -185,16 +185,19 @@
+--- a/setup.py
++++ b/setup.py
+@@ -185,17 +185,18 @@ FORCE_CFW = os.getenv("AENEAS_FORCE_CFW"
  ##############################################################################
  
  # try importing numpy: if it fails, warn user and exit
