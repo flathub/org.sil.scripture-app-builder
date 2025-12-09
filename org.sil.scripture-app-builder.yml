@@ -67,6 +67,7 @@ modules:
   - name: python3-aeneas
     buildsystem: simple
     build-commands:
+      - python3 -m pip install --no-index --find-links="file://${PWD}" --force-reinstall "pip==24.3.1"
       - python3 -m pip install --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "meson-python" "pyproject-metadata"
       - python3 -m pip install --exists-action=i --no-index --find-links="file://${PWD}"
@@ -74,6 +75,9 @@ modules:
       - python3 -m pip install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "aeneas" --no-build-isolation
     sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/ef/7d/500c9ad20238fcfcb4cb9243eede163594d7020ce87bd9610c9e02771876/pip-24.3.1-py3-none-any.whl
+        sha256: 3790624780082365f47549d032f3770eeb2b1e8bd1f7b2e02dace1afa361b4ed
       - type: file
         url: https://files.pythonhosted.org/packages/28/58/66db620a8a7ccb32633de9f403fe49f1b63c68ca94e5c340ec5cceeb9821/meson_python-0.18.0-py3-none-any.whl
         sha256: 3b0fe051551cc238f5febb873247c0949cd60ded556efa130aa57021804868e2
