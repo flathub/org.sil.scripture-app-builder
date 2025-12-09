@@ -4,11 +4,11 @@
 # Node20:    https://github.com/flathub/org.freedesktop.Sdk.Extension.node20/blob/branch/23.08/org.freedesktop.Sdk.Extension.node20.yaml
 app-id: org.sil.scripture-app-builder
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
-  - org.freedesktop.Sdk.Extension.node20
+  - org.freedesktop.Sdk.Extension.node22
 finish-args:
   # Window x11 socket access
   - --socket=x11
@@ -76,14 +76,14 @@ modules:
         url: https://files.pythonhosted.org/packages/e5/92/88d421001bb257588df4864ceca24d570e2e822db4f40f48737a78b648b2/aeneas-1.7.3.0.tar.gz
         sha256: b492d8ba36f12cce69c29c35e7075857a9d036c4743cc8f4689922be980826da
       - type: file
-        url: https://files.pythonhosted.org/packages/4c/f3/038b302fdfbe3be7da016777069f26ceefe11a681055ea1f7817546508e3/soupsieve-2.5-py3-none-any.whl
-        sha256: eaa337ff55a1579b6549dc679565eac1e3d000563bcb1c8ab0d0fefbc0c2cdc7
+        url: https://files.pythonhosted.org/packages/d1/c2/fe97d779f3ef3b15f05c94a2f1e3d21732574ed441687474db9d342a7315/soupsieve-2.6-py3-none-any.whl
+        sha256: e72c4ff06e4fb6e4b5a9f0f55fe6e81514581fca1515028625d0f299c602ccc9
       - type: file
-        url: https://files.pythonhosted.org/packages/63/f7/ffbb6d2eb67b80a45b8a0834baa5557a14a5ffce0979439e7cd7f0c4055b/lxml-5.2.2.tar.gz
-        sha256: bb2dc4898180bea79863d5487e5f9c7c34297414bad54bcd0f0852aee9cfdb87
+        url: https://files.pythonhosted.org/packages/e7/6b/20c3a4b24751377aaa6307eb230b66701024012c29dd374999cc92983269/lxml-5.3.0.tar.gz
+        sha256: 4e109ca30d1edec1ac60cdbe341905dc3b8f55b16855e03a54aaf59e51ec8c6f
       - type: file
-        url: https://files.pythonhosted.org/packages/a0/41/8f53eff8e969dd8576ddfb45e7ed315407d27c7518ae49418be8ed532b07/numpy-1.25.2.tar.gz
-        sha256: fd608e19c8d7c55021dffd43bfe5492fab8cc105cc8986f813f8c3c048b38760
+        url: https://files.pythonhosted.org/packages/65/6e/09db70a523a96d25e115e71cc56a6f9031e7b8cd166c1ac8438307c14058/numpy-1.26.4.tar.gz
+        sha256: 2a02aba9ed12e4ac4eb3ea9421c420301a0c6460d9830d74a9df87efa4912010
       - type: file
         url: https://files.pythonhosted.org/packages/b1/fe/e8c672695b37eecc5cbf43e1d0638d88d66ba3a44c4d321c796f4e59167f/beautifulsoup4-4.12.3-py3-none-any.whl
         sha256: b80878c9f40111313e55da8ba20bdba06d8fa3969fc68304167741bbf9e082ed
@@ -141,7 +141,7 @@ modules:
         -t /app/share/metainfo/
       - install -Dm755 sab-run.sh /app/bin/sab-run.sh
       # Node
-      - /usr/lib/sdk/node20/install-sdk.sh
+      - /usr/lib/sdk/node22/install-sdk.sh
       - ln -s /app/node /app/scripture-app-builder/tools/node
     cleanup:
       - /scripture-app-builder/app-icons
