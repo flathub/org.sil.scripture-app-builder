@@ -71,10 +71,10 @@ modules:
     buildsystem: simple
     build-commands:
       - pip3 install --no-index --find-links="file://${PWD}" "setuptools" "pyproject-metadata"
-        "meson-python" --no-build-isolation
-      - pip3 install --no-index --find-links="file://${PWD}" "numpy" --no-build-isolation
+        "meson-python"
+      - pip3 install --no-index --find-links="file://${PWD}" "numpy"
       - pip3 install --no-index --find-links="file://${PWD}" "beautifulsoup4" "lxml"
-        "soupsieve" --no-build-isolation
+        "soupsieve"
       - pip3 install --verbose --no-index --find-links="file://${PWD}" "aeneas" --no-build-isolation
     sources:
       - type: file
