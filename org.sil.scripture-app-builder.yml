@@ -35,8 +35,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/ThomasDickey/xterm-snapshots.git
-        tag: xterm-403
-        commit: 1b8146571535adeee117fc4db331a4b44eda74a9
+        tag: xterm-404
+        commit: 0cfc684d22ffe0812f1b60dceb1d174ba0a6f22e
         x-checker-data:
           type: anitya
           project-id: 5272
@@ -73,7 +73,8 @@ modules:
         --prefix=${FLATPAK_DEST} "numpy" --no-build-isolation
       # Extract and patch aeneas, then repackage it for pip
       - tar -xzf aeneas-1.7.3.0.tar.gz
-      - cd aeneas-1.7.3.0 && patch -p0 < ../remove-numpy-import-check.patch && cd ..
+      - cd aeneas-1.7.3.0 && patch -p0 < ../remove-numpy-import-check.patch && cd
+        ..
       - tar -czf aeneas-1.7.3.0-patched.tar.gz aeneas-1.7.3.0
       - python3 -m pip install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} aeneas-1.7.3.0-patched.tar.gz --no-build-isolation
