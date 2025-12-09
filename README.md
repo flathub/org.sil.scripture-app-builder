@@ -26,10 +26,10 @@ sudo apt install flatpak-builder flatpak
 
 Install freedesktop runtime, and openjdk:
 ```bash
-flatpak --user install flathub org.freedesktop.Sdk//25.08
-flatpak --user install flathub org.freedesktop.Platform//25.08
-flatpak --user install flathub org.freedesktop.Sdk.Extension.openjdk17//25.08
-flatpak --user install flathub org.freedesktop.Sdk.Extension.node22//25.08
+flatpak --user install flathub org.freedesktop.Sdk//24.08
+flatpak --user install flathub org.freedesktop.Platform//24.08
+flatpak --user install flathub org.freedesktop.Sdk.Extension.openjdk17//24.08
+flatpak --user install flathub org.freedesktop.Sdk.Extension.node22//24.08
 flatpak update
 ```
 
