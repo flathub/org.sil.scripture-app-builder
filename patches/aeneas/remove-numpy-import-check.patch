@@ -1,5 +1,5 @@
---- a/setup.py
-+++ b/setup.py
+--- setup.py
++++ setup.py
 @@ -185,17 +185,18 @@ FORCE_CFW = os.getenv("AENEAS_FORCE_CFW"
  ##############################################################################
  
