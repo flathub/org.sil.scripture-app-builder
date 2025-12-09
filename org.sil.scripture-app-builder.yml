@@ -75,7 +75,7 @@ modules:
       - python3 -m pip install --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "numpy" --no-build-isolation
       - python3 -m pip install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} "aeneas" --no-build-isolation
+        --prefix=${FLATPAK_DEST} "aeneas"
     sources:
       - type: file
         url: https://files.pythonhosted.org/packages/91/c0/104cb6244c83fe6bc3886f144cc433db0c0c78efac5dc00e409a5a08c87d/meson_python-0.16.0-py3-none-any.whl
