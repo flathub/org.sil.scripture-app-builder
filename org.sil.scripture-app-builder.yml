@@ -59,6 +59,9 @@ modules:
             url: https://www.x.org/archive/individual/lib/libXaw-1.0.16.tar.xz
             sha256: 731d572b54c708f81e197a6afa8016918e2e06dfd3025e066ca642a5b8c39c8f
       - name: ncurses
+        config-opts:
+          - --without-cxx
+          - --without-cxx-binding
         sources:
           - type: archive
             url: https://invisible-mirror.net/archives/ncurses/ncurses-6.4.tar.gz
