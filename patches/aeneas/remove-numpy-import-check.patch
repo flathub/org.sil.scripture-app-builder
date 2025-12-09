@@ -1,12 +1,12 @@
 --- setup.py
 +++ setup.py
-@@ -185,17 +185,18 @@ FORCE_CFW = os.getenv("AENEAS_FORCE_CFW"
+@@ -185,17 +185,20 @@ FORCE_CFW = os.getenv("AENEAS_FORCE_CFW"
  ##############################################################################
  
  # try importing numpy: if it fails, warn user and exit
 +# Patched for Flatpak: numpy will be installed as a build dependency
  try:
--    from numpy import get_include
+     from numpy import get_include
      from numpy.distutils import misc_util
 +    INCLUDE_DIRS = [misc_util.get_numpy_include_dirs()]
  except ImportError:
@@ -17,13 +17,14 @@
 -
 -# to compile cdtw and cmfcc, we need to include the NumPy dirs
 -INCLUDE_DIRS = [misc_util.get_numpy_include_dirs()]
-+    # Fallback: try to get numpy include directory via pkg-config or default path
++    # Fallback: define get_include() to use numpy.get_include()
 +    import numpy
++    def get_include():
++        return numpy.get_include()
 +    try:
 +        INCLUDE_DIRS = [numpy.get_include()]
 +    except AttributeError:
-+        # Last resort: assume numpy is in standard location
 +        INCLUDE_DIRS = []
  
- # scripts to be installed globally
- # on Linux and Mac OS X, use the file without extension
+ # extensions to compile
+ EXTENSIONS = []
