@@ -136,8 +136,14 @@ modules:
         only-arches:
           - x86_64
         dest-filename: openjfx.zip
-        url: https://download2.gluonhq.com/openjfx/17.0.11/openjfx-17.0.11_linux-x64_bin-sdk.zip
-        sha256: f46a1fbea32b83cca6715d74cba7d9c24ce320f1da2daf8ff852f133e9f15674
+        url: https://download2.gluonhq.com/openjfx/21/openjfx-21_linux-x64_bin-sdk.zip
+        sha256: 7d2fc17019540e04c1a0af7a333a8c7e0330d3a7f4579311d65e76320ea9a8c9
+      - type: file
+        only-arches:
+          - aarch64
+        dest-filename: openjfx.zip
+        url: https://download2.gluonhq.com/openjfx/21/openjfx-21_linux-aarch64_bin-sdk.zip
+        sha256: d8d290064a0d63984fb75f031162450a53a4e19764a2fb1ac558b50ab396509c
 
   - name: scripture-app-builder
     buildsystem: simple
