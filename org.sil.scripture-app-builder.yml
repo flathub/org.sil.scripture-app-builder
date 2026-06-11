@@ -115,6 +115,20 @@ modules:
           - type: patch
             path: patches/espeak/FlatpakEspeak.patch
 
+  - name: espeak-ng
+    buildsystem: autotools
+    cleanup:
+      - '*.a'
+    sources:
+      - type: git
+        url: https://github.com/espeak-ng/espeak-ng.git
+        tag: 1.52.0
+        commit: 4870adfa25b1a32b4361592f1be8a40337c58d6c
+        x-checker-data:
+          type: anitya
+          project-id: 8564
+          tag-template: $version
+
   - name: openjdk17
     buildsystem: simple
     build-commands:
@@ -175,5 +189,3 @@ modules:
           - x86_64
         url: https://sil-app-builders-linux-artifacts.s3.amazonaws.com/master/137/scripture-app-builder.tgz
         sha256: 6cfb36b35b3be5036639c05edd9fda42b7de0817bcf7fe0d3dd915c436adfa24
-
-
