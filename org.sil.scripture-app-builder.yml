@@ -64,6 +64,22 @@ modules:
             url: https://invisible-mirror.net/archives/ncurses/ncurses-6.4.tar.gz
             sha256: 6931283d9ac87c5073f30b6290c4c75f21632bb4fc3603ac8100812bed248159
 
+  # needed for dido (optional installation using "Tools > Install Aeneas")
+  - name: espeak-ng
+    buildsystem: autotools
+    cleanup:
+      - '*.a'
+    sources:
+      - type: git
+        url: https://github.com/espeak-ng/espeak-ng.git
+        tag: 1.52
+        commit: 4870adfa25b1a32b4361592f1be8a40337c58d6c
+        x-checker-data:
+          type: anitya
+          project-id: 12958
+          tag-template: $version
+
+  # build python3-aeneas after espeak-ng (creates a symbolic link from espeak-ng to espeak and we want both available to the end user)
   - name: python3-aeneas
     buildsystem: simple
     build-commands:
@@ -114,20 +130,6 @@ modules:
             commit: 0dd86a59e84a475bdd809a3aec7bc95a460ad5a6
           - type: patch
             path: patches/espeak/FlatpakEspeak.patch
-
-  - name: espeak-ng
-    buildsystem: autotools
-    cleanup:
-      - '*.a'
-    sources:
-      - type: git
-        url: https://github.com/espeak-ng/espeak-ng.git
-        tag: 1.52.0
-        commit: 4870adfa25b1a32b4361592f1be8a40337c58d6c
-        x-checker-data:
-          type: anitya
-          project-id: 8564
-          tag-template: $version
 
   - name: openjdk17
     buildsystem: simple
@@ -187,5 +189,5 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://sil-app-builders-linux-artifacts.s3.amazonaws.com/master/137/scripture-app-builder.tgz
-        sha256: 6cfb36b35b3be5036639c05edd9fda42b7de0817bcf7fe0d3dd915c436adfa24
+        url: https://sil-app-builders-linux-artifacts.s3.amazonaws.com/master/146/scripture-app-builder.tgz
+        sha256: 1174385bcddda87e0d5659776888db859d2be492b4a31665aad4a4bda9c36289
