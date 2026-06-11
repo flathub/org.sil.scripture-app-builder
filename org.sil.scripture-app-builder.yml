@@ -72,7 +72,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/espeak-ng/espeak-ng.git
-        tag: 1.52
+        tag: 1.52.0
         commit: 4870adfa25b1a32b4361592f1be8a40337c58d6c
         x-checker-data:
           type: anitya
