@@ -185,10 +185,14 @@ modules:
           - exec /app/jre/bin/java -Djava.io.tmpdir="/var/tmp" --module-path "/app/lib/openjfx"
             --add-modules javafx.web,javafx.fxml,javafx.swing,javafx.media --add-opens=javafx.fxml/javafx.fxml=ALL-UNNAMED
             -jar /app/scripture-app-builder/bin/scripture-app-builder.jar "$@"
-      # App Builder prebuilt binaries (update branch/build_number and sha256 before each release)
+      # App Builder prebuilt binaries (updated by flathubbot via x-checker-data)
       - type: file
         only-arches:
           - x86_64
         url: https://sil-app-builders-linux-artifacts.s3.amazonaws.com/master/160/scripture-app-builder.tgz
         sha256: dc3ad7c7defdfa3df33ba09ffaefab46a010fd437c87c2d5520d029bb3001fb8
-
+        x-checker-data:
+          type: json
+          url: https://sil-app-builders-linux-artifacts.s3.amazonaws.com/latest/flatpak.json
+          version-query: .scripture.version
+          url-query: .scripture.url
