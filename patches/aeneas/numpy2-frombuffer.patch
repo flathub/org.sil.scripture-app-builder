@@ -1,0 +1,33 @@
+--- aeneas/wavfile.py
++++ aeneas/wavfile.py
+@@ -75,7 +75,7 @@
+         else:
+             dtype += 'f%d' % bytes
+     if not mmap:
+-        data = numpy.fromstring(fid.read(size), dtype=dtype)
++        data = numpy.frombuffer(fid.read(size), dtype=dtype).copy()
+     else:
+         start = fid.tell()
+         data = numpy.memmap(fid, dtype=dtype, mode='c', offset=start,
+--- aeneas/ttswrappers/awsttswrapper.py
++++ aeneas/ttswrappers/awsttswrapper.py
+@@ -338,7 +338,7 @@
+         self.log([u"Number of frames: %d", number_of_frames])
+         self.log([u"Audio length (s): %.3f", audio_length])
+         audio_format = "pcm16"
+-        audio_samples = numpy.fromstring(response_content, dtype=numpy.int16).astype("float64") / 32768
++        audio_samples = numpy.frombuffer(response_content, dtype=numpy.int16).astype("float64") / 32768
+ 
+         # return data
+         return (True, (audio_length, audio_sample_rate, audio_format, audio_samples))
+--- aeneas/ttswrappers/nuancettswrapper.py
++++ aeneas/ttswrappers/nuancettswrapper.py
+@@ -421,7 +421,7 @@
+         self.log([u"Number of frames: %d", number_of_frames])
+         self.log([u"Audio length (s): %.3f", audio_length])
+         audio_format = "pcm16"
+-        audio_samples = numpy.fromstring(response.content, dtype=numpy.int16).astype("float64") / 32768
++        audio_samples = numpy.frombuffer(response.content, dtype=numpy.int16).astype("float64") / 32768
+ 
+         # return data
+         return (True, (audio_length, audio_sample_rate, audio_format, audio_samples))
