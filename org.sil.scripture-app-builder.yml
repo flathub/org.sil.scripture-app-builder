@@ -192,6 +192,9 @@ modules:
       - type: script
         dest-filename: sab-run.sh
         commands:
+          # The downloaded aeneas-cli bundles Debian's libespeak, which looks for
+          # /usr/lib/x86_64-linux-gnu/espeak-data; point it at our espeak data
+          - export ESPEAK_DATA_PATH=/app/share
           - exec /app/jre/bin/java -Djava.io.tmpdir="/var/tmp" --module-path "/app/lib/openjfx"
             --add-modules javafx.web,javafx.fxml,javafx.swing,javafx.media --add-opens=javafx.fxml/javafx.fxml=ALL-UNNAMED
             -jar /app/scripture-app-builder/bin/scripture-app-builder.jar "$@"
