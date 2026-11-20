@@ -202,8 +202,8 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://sil-app-builders-linux-artifacts.s3.amazonaws.com/master/160/scripture-app-builder.tgz
-        sha256: dc3ad7c7defdfa3df33ba09ffaefab46a010fd437c87c2d5520d029bb3001fb8
+        url: https://sil-app-builders-linux-artifacts.s3.amazonaws.com/master/161/scripture-app-builder.tgz
+        sha256: aed55793dab3d5c9ae4ff68f7a08403487819d652a3460f95fe40ab11e96947f
         x-checker-data:
           type: json
           url: https://sil-app-builders-linux-artifacts.s3.amazonaws.com/latest/flatpak.json
